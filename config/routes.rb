@@ -15,7 +15,16 @@ Rails.application.routes.draw do
       get :search
     end
   end
+  
+  #お気に入り
+  resources :users, only: [:index, :show, :new, :create] do
+    member do
+      get :likes
+    end
+  end
 
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  #お気に入り
+  resources :favorites, only: [:create, :destroy]
 end
