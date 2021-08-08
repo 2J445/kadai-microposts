@@ -11,13 +11,7 @@ Rails.application.routes.draw do
       get :followings
       get :followers
     end
-    collection do
-      get :search
-    end
-  end
-  
-  #お気に入り
-  resources :users, only: [:index, :show, :new, :create] do
+    #お気に入り
     member do
       get :likes
     end
